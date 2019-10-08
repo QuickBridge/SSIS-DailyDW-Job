@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Phoenix_Replication"
+  DTS:DTSID="{855ACDBD-E8BE-4E18-9E84-30FE5AAEFC39}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::DBServerName_PhoenixReplicated]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=qbf-dev1\devqbfrep;Initial Catalog=Phoenix;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS Daily Project;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

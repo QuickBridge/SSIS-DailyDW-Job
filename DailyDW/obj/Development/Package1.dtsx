@@ -1,0 +1,754 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/4/2015 2:30:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="QBFSYSMS"
+  DTS:CreatorName="QUICKBRIDGE\Mstuewe"
+  DTS:DTSID="{F35FF93A-2837-45D9-B9F4-DBF7505920D0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{0E01465E-CF7D-4880-A7B2-869FCBBE9E26}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{742DCA0A-90FD-448A-927B-F4C5612E3460}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="ActionType for Insert for Insert SalesAnalystId"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Output].Columns[ActionTypeId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Output].Columns[ActionTypeId]"
+                      name="ActionTypeId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert by Buffer into stg Account_Error"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[Account_Error]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Connections[OleDbConnection]"
+                  connectionManagerID="{EB30901A-B3F0-4630-BDB7-82A4A70382D3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SSISStagingDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[CreatedOnTimeKey]"
+                      cachedDataType="i4"
+                      cachedName="CreatedOnTimeKey"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnTimeKey]"
+                      lineageId="Package\Data Flow Task\1165:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[AccountId]"
+                      cachedDataType="i4"
+                      cachedName="AccountId"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      lineageId="Package\Data Flow Task\1166:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\Data Flow Task\1167:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[UpdatedOnDateKey]"
+                      cachedDataType="i4"
+                      cachedName="UpdatedOnDateKey"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedOnDateKey]"
+                      lineageId="Package\Data Flow Task\1168:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[CreatedOnDateKey]"
+                      cachedDataType="i4"
+                      cachedName="CreatedOnDateKey"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnDateKey]"
+                      lineageId="Package\Data Flow Task\1169:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[isCurrentRow]"
+                      cachedDataType="i4"
+                      cachedName="isCurrentRow"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrentRow]"
+                      lineageId="Package\Data Flow Task\1170:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[SnapshotOn]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="SnapshotOn"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SnapshotOn]"
+                      lineageId="Package\Data Flow Task\1171:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[SalesAnalystId Transformed]"
+                      cachedDataType="i4"
+                      cachedName="SalesAnalystId Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystId]"
+                      lineageId="Package\Data Flow Task\1172:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[BusinessDBA Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="64"
+                      cachedName="BusinessDBA Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[BusinessDBA]"
+                      lineageId="Package\Data Flow Task\1173:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[FirstName Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="64"
+                      cachedName="FirstName Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnlystFirstName]"
+                      lineageId="Package\Data Flow Task\1174:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[LastName Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="64"
+                      cachedName="LastName Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystLastName]"
+                      lineageId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Connections[OleDbConnection]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[AccountingStatusCode Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AccountingStatusCode Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[AccountingStatusCode]"
+                      lineageId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[PaidOff6Months]"
+                      cachedDataType="bool"
+                      cachedName="PaidOff6Months"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[IsPaidOffIn6Months]"
+                      lineageId="Package\Data Flow Task\1175:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[ActionTypeId]"
+                      cachedDataType="i4"
+                      cachedName="ActionTypeId"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[ActionTypeId]"
+                      lineageId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Output].Columns[ActionTypeId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].Columns[UpdatedOnTimeKey]"
+                      cachedDataType="i4"
+                      cachedName="UpdatedOnTimeKey"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedOnTimeKey]"
+                      lineageId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[AccountId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
+                      dataType="i4"
+                      name="AccountKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      dataType="i4"
+                      name="AccountId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystId]"
+                      dataType="i4"
+                      name="SalesAnalystId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[BusinessDBA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      name="BusinessDBA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnlystFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      name="SalesAnlystFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      name="SalesAnalystLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[AccountingStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountingStatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[IsPaidOffIn6Months]"
+                      dataType="bool"
+                      name="IsPaidOffIn6Months" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrentRow]"
+                      dataType="bool"
+                      name="IsCurrentRow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnDateKey]"
+                      dataType="i4"
+                      name="CreatedOnDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnTimeKey]"
+                      dataType="i4"
+                      name="CreatedOnTimeKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedOnDateKey]"
+                      dataType="i4"
+                      name="UpdatedOnDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[SnapshotOn]"
+                      dataType="dbTimeStamp2"
+                      name="SnapshotOn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[Account_ErrorId]"
+                      dataType="i4"
+                      name="Account_ErrorId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[ActionTypeId]"
+                      dataType="ui1"
+                      name="ActionTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedOnTimeKey]"
+                      dataType="i4"
+                      name="UpdatedOnTimeKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input].ExternalColumns[ErroredOn]"
+                      dataType="dbTimeStamp2"
+                      name="ErroredOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert New SalesAnalystId by Row into dim Account"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dim].[Account]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Connections[OleDbConnection]"
+                  connectionManagerID="{13EA640D-CE08-4C51-BA95-73E2D9BE435C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Titan]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[AccountId]"
+                      cachedDataType="i4"
+                      cachedName="AccountId"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      lineageId="Package\Data Flow Task\1166:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[UpdatedOnDateKey]"
+                      cachedDataType="i4"
+                      cachedName="UpdatedOnDateKey"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedOnDateKey]"
+                      lineageId="Package\Data Flow Task\1168:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[CreatedOnDateKey]"
+                      cachedDataType="i4"
+                      cachedName="CreatedOnDateKey"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnDateKey]"
+                      lineageId="Package\Data Flow Task\1169:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[CreatedOnTimeKey]"
+                      cachedDataType="i4"
+                      cachedName="CreatedOnTimeKey"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnTimeKey]"
+                      lineageId="Package\Data Flow Task\1165:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[PaidOff6Months]"
+                      cachedDataType="bool"
+                      cachedName="PaidOff6Months"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[IsPaidOffIn6Months]"
+                      lineageId="Package\Data Flow Task\1175:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[isCurrentRow]"
+                      cachedDataType="i4"
+                      cachedName="isCurrentRow"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrentRow]"
+                      lineageId="Package\Data Flow Task\1170:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\Data Flow Task\1167:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[SnapshotOn]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="SnapshotOn"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SnapshotOn]"
+                      lineageId="Package\Data Flow Task\1171:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[SalesAnalystId Transformed]"
+                      cachedDataType="i4"
+                      cachedName="SalesAnalystId Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystId]"
+                      lineageId="Package\Data Flow Task\1172:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[BusinessDBA Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="64"
+                      cachedName="BusinessDBA Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[BusinessDBA]"
+                      lineageId="Package\Data Flow Task\1173:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[FirstName Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="64"
+                      cachedName="FirstName Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnlystFirstName]"
+                      lineageId="Package\Data Flow Task\1174:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[LastName Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="64"
+                      cachedName="LastName Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystLastName]"
+                      lineageId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Connections[OleDbConnection]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].Columns[AccountingStatusCode Transformed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AccountingStatusCode Transformed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[AccountingStatusCode]"
+                      lineageId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[AccountKey]"
+                      dataType="i4"
+                      name="AccountKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      dataType="i4"
+                      name="AccountId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystId]"
+                      dataType="i4"
+                      name="SalesAnalystId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[BusinessDBA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      name="BusinessDBA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnlystFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      name="SalesAnlystFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SalesAnalystLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="64"
+                      name="SalesAnalystLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[AccountingStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AccountingStatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[IsPaidOffIn6Months]"
+                      dataType="bool"
+                      name="IsPaidOffIn6Months" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrentRow]"
+                      dataType="bool"
+                      name="IsCurrentRow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnDateKey]"
+                      dataType="i4"
+                      name="CreatedOnDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOnTimeKey]"
+                      dataType="i4"
+                      name="CreatedOnTimeKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedOnDateKey]"
+                      dataType="i4"
+                      name="UpdatedOnDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input].ExternalColumns[SnapshotOn]"
+                      dataType="dbTimeStamp2"
+                      name="SnapshotOn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Insert by Buffer into stg Account_Error.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Destination Error Output]"
+              endId="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId.Inputs[Derived Column Input]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account.Outputs[OLE DB Destination Error Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task"
+          TopLeft="427,184" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="325,42"
+          Id="Package\Data Flow Task\Insert New SalesAnalystId by Row into dim Account"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="300,42"
+          Id="Package\Data Flow Task\ActionType for Insert for Insert SalesAnalystId"
+          TopLeft="65.5000000000002,162" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Data Flow Task\Insert by Buffer into stg Account_Error"
+          TopLeft="78.5,262.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Destination Error Output]"
+          TopLeft="219,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.20890625,20.5332031249999,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="213,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.5"
+              Start="0,0"
+              End="0,51">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,17.5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

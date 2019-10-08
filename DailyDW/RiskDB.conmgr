@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="RiskDB"
+  DTS:DTSID="{E7A9EDB1-C943-4276-A66B-4AAC088D9DAE}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::DBServerName_RiskDB]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=qbf-dev1\devqbfrep;Initial Catalog=RiskDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS Daily Project;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
